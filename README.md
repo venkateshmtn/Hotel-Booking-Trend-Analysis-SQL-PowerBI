@@ -1,29 +1,105 @@
-# Hotel Booking Trend Analysis
+# Hotel Booking Trend Analysis (SQL + Power BI)
 
 ## Project Overview
-This project analyzes hotel booking trends using SQL and Power BI.
 
-## Tools Used
-- SQL Server
-- Power BI
-- Excel
+The **Hotel Booking Trend Analysis** project focuses on analyzing hotel booking data from **2018–2020** to identify revenue patterns, booking behavior, and market segment performance.
 
-## Dataset
-Hotel booking data from 2018–2020 including:
-- Booking information
-- Market segment
-- Meal costs
+The project uses **SQL Server for data preparation** and **Power BI for interactive dashboard visualization**.
 
-## SQL Data Preparation
-Data from multiple years is combined using UNION and joined with market segment and meal cost tables.
+This analysis helps understand:
+
+* Booking trends over time
+* Revenue growth patterns
+* Market segment contributions
+* Impact of meal costs on revenue
+
+---
+
+## Tools & Technologies
+
+* **SQL Server** – Data extraction and transformation
+* **Power BI** – Interactive dashboard and visualization
+* **Excel** – Data source
+
+---
+
+## Project Structure
+
+```
+Hotel-Booking-Trend-Analysis
+│
+├── Hotel_SQL_file.sql
+├── Hotel_Trend_Analysis.pbix
+├── README.md
+└── screenshots
+      dashboard.png
+```
+
+---
+
+## Data Preparation (SQL)
+
+Data from multiple hotel datasets (2018, 2019, 2020) were combined using **UNION** and joined with additional tables containing market segment and meal cost information.
+
+Example SQL Query:
+
+```sql
+WITH hotels AS (
+SELECT * FROM hotel_2018
+UNION
+SELECT * FROM hotel_2019
+UNION
+SELECT * FROM hotel_2020
+)
+SELECT *
+FROM hotels
+LEFT JOIN hotel_market_segment
+ON hotels.market_segment = hotel_market_segment.market_segment
+LEFT JOIN hotel_meal_cost
+ON hotels.meal = hotel_meal_cost.meal
+```
+
+---
 
 ## Dashboard Insights
-The Power BI dashboard shows:
-- Revenue trends
-- Booking distribution
-- Market segment performance
-- Meal cost impact
 
-## Files in Repository
-- Hotel_SQL_file.sql → SQL queries used for data preparation
-- Hotel_Trend_Analysis.pbix → Power BI dashboard
+The Power BI dashboard provides insights into:
+
+✔ Yearly revenue trends
+✔ Hotel booking distribution
+✔ Market segment performance
+✔ Average daily rate analysis
+✔ Meal cost impact on revenue
+
+---
+
+## Key Analysis Questions
+
+* Is hotel revenue growing by year?
+* Which **market segment** contributes the most bookings?
+* How do **meal costs** influence overall revenue?
+* Which **hotel type** generates the highest revenue?
+
+---
+
+
+## Skills Demonstrated
+
+* Data Cleaning
+* SQL Joins & Data Transformation
+* Data Modeling
+* Business Data Analysis
+* Dashboard Design
+* Data Visualization
+
+---
+
+## Author
+
+**Venkatesh Metan**
+
+Aspiring **Data Analyst** passionate about transforming raw data into meaningful insights using **SQL, Python, and Power BI**.
+
+---
+
+⭐ If you like this project, feel free to **star the repository**.
